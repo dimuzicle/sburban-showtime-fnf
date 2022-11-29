@@ -1,0 +1,130 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				108,
+				13
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "left",
+			"indices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-12,
+				-20
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-14,
+				58
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "up",
+			"indices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-31,
+				14
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
+			"indices": [
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			]
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "danceLeft",
+			"indices": [],
+			"name": "danceLeft"
+		},
+		{
+			"offsets": [
+				-40,
+				0
+			],
+			"loop": false,
+			"fps": 20,
+			"anim": "danceRight",
+			"indices": [],
+			"name": "danceRight"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/jadess",
+	"position": [
+		-230,
+		-50
+	],
+	"healthicon": "jade",
+	"flip_x": false,
+	"healthbar_colors": [
+		70,
+		173,
+		255
+	],
+	"camera_position": [
+		220,
+		160
+	],
+	"sing_duration": 4,
+	"scale": 0.7
+}

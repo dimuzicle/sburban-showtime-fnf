@@ -1,0 +1,45 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "boppers",
+			"indices": [],
+			"name": "pumpkinboppers"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "pumpkinboppers"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bgpumpkin",
+	"position": [
+		-730,
+		60
+	],
+	"healthicon": "bf",
+	"flip_x": false,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		-100,
+		-90
+	],
+	"sing_duration": 4,
+	"scale": 0.7
+}

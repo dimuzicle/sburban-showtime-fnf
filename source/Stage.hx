@@ -66,18 +66,6 @@ class Stage extends FlxTypedGroup<FlxBasic>
                     stageCurtains.updateHitbox();
                     add(stageCurtains);
                 }
-            case 'awesome':
-                var blank:FlxSprite = new FlxSprite(-200, -575).makeGraphic(Std.int(FlxG.width * 5), Std.int(FlxG.height * 5), FlxColor.WHITE);
-				blank.scrollFactor.set(0.9, 0.9);
-				add(blank);
-
-                var ground:BGSprite = new BGSprite('stages/dave/ground', -800, 0, 0.75, 0.75);
-                ground.setGraphicSize(Std.int(ground.width * 0.7));
-                add(ground);
-
-                var stuff:BGSprite = new BGSprite('stages/dave/stuff', 0, 0, 0.75, 0.75);
-                stuff.setGraphicSize(Std.int(stuff.width * 0.7));
-                add(stuff);
             case 'balcony':
                 var bg:BGSprite = new BGSprite('stages/john/4', 0, 0, 0.6, 0.6);
                 bg.setGraphicSize(Std.int(bg.width * 1.34));
