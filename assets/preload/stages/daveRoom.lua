@@ -9,7 +9,6 @@ function onCreate()
 	-- background shit
 
 	makeLuaSprite('floor', 'stages/dave/dave floor', -500, -100);
-	setScrollFactor('floor', 0.9, 0.9);
 	scaleObject('floor', .8, .8);
 
 	makeLuaSprite('jack', 'stages/dave/dave jack', -550, 0);

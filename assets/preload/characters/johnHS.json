@@ -59,8 +59,8 @@
 	"no_antialiasing": true,
 	"image": "characters/john",
 	"position": [
-		160,
-		20
+		70,
+		350
 	],
 	"healthicon": "johnms",
 	"flip_x": false,
@@ -70,8 +70,8 @@
 		255
 	],
 	"camera_position": [
-		410,
-		-50
+		210,
+		-100
 	],
 	"sing_duration": 6.1,
 	"scale": 1.8

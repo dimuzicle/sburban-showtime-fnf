@@ -1,65 +1,10 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				-36,
-				28
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "hurt",
-			"indices": [],
-			"name": "BF hit"
-		},
-		{
-			"offsets": [
-				-4,
-				0
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "scared",
-			"indices": [],
-			"name": "BF idle shaking"
-		},
-		{
-			"offsets": [
-				-10,
-				-16
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "dodge",
-			"indices": [],
-			"name": "boyfriend dodge"
-		},
-		{
-			"offsets": [
-				294,
-				267
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "attack",
-			"indices": [],
-			"name": "boyfriend attack"
-		},
-		{
-			"offsets": [
-				-40,
-				-40
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "pre-attack",
-			"indices": [],
-			"name": "bf pre attack"
-		},
-		{
 			"loop": false,
 			"offsets": [
-				-5,
-				20
+				-7,
+				32
 			],
 			"anim": "idle",
 			"fps": 24,
@@ -69,8 +14,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				8,
-				18
+				3,
+				30
 			],
 			"anim": "singLEFT",
 			"fps": 24,
@@ -94,8 +39,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-1,
-				-22
+				9,
+				-2
 			],
 			"anim": "singDOWN",
 			"fps": 24,
@@ -120,7 +65,7 @@
 			"loop": false,
 			"offsets": [
 				-56,
-				27
+				50
 			],
 			"anim": "singUP",
 			"fps": 24,
@@ -144,8 +89,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-49,
-				16
+				-39,
+				30
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
@@ -170,7 +115,7 @@
 			"loop": false,
 			"offsets": [
 				7,
-				19
+				29
 			],
 			"anim": "singLEFTmiss",
 			"fps": 24,
@@ -180,8 +125,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-15,
-				-19
+				8,
+				0
 			],
 			"anim": "singDOWNmiss",
 			"fps": 24,
@@ -192,7 +137,7 @@
 			"loop": false,
 			"offsets": [
 				-59,
-				37
+				49
 			],
 			"anim": "singUPmiss",
 			"fps": 24,
@@ -202,8 +147,8 @@
 		{
 			"loop": false,
 			"offsets": [
-				-45,
-				32
+				-42,
+				30
 			],
 			"anim": "singRIGHTmiss",
 			"fps": 24,
@@ -226,7 +171,7 @@
 	"image": "characters/bfmspa",
 	"position": [
 		-220,
-		-350
+		-20
 	],
 	"healthicon": "bf",
 	"flip_x": true,
@@ -236,8 +181,8 @@
 		209
 	],
 	"camera_position": [
-		90,
-		150
+		60,
+		190
 	],
 	"sing_duration": 4,
 	"scale": 0.7

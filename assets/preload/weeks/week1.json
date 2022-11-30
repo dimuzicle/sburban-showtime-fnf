@@ -1,4 +1,20 @@
 {
+	"storyName": "Your New Week",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"Fresh",
@@ -8,25 +24,45 @@
 				113,
 				253
 			]
+		],
+		[
+			"prankster",
+			"john",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"sunshatter",
+			"jade",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"pouncegreet",
+			"rose",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"philly-nice",
+			"dave",
+			[
+				146,
+				113,
+				253
+			]
 		]
 	],
-	"hiddenUntilUnlocked": false,
-	"hideFreeplay": false,
-	"weekBackground": "stage",
-	"difficulties": "Normal",
-	"weekCharacters": [
-		"dad",
-		"bf",
-		"gf"
-	],
-	"storyName": "Your New Week",
-	"weekName": "Custom Week",
-	"freeplayColor": [
-		146,
-		113,
-		253
-	],
 	"hideStoryMode": false,
-	"weekBefore": "tutorial",
-	"startUnlocked": true
+	"weekName": "Custom Week",
+	"hiddenUntilUnlocked": false
 }

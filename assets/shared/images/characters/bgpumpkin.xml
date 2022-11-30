@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bgpumpkin.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="pumpkinboppers0000" x="0" y="0" width="2378" height="1172" frameX="0" frameY="-25" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0001" x="0" y="0" width="2378" height="1172" frameX="0" frameY="-25" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0002" x="0" y="1272" width="2164" height="1202" frameX="-107" frameY="-10" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0003" x="0" y="1272" width="2164" height="1202" frameX="-107" frameY="-10" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0004" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0005" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0006" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0007" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0008" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0009" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0010" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0011" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0012" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+	<SubTexture name="pumpkinboppers0013" x="0" y="2574" width="2146" height="1222" frameX="-116" frameY="0" frameWidth="2378" frameHeight="1222"/>
+</TextureAtlas>
