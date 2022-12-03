@@ -35,8 +35,8 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		'credits',
-		'options'
+		'options',
+		'credits'
 	];
 
 	var debugKeys:Array<FlxKey>;
@@ -103,6 +103,7 @@ class MainMenuState extends MusicBeatState
 			});*/
 		}
 
+		/*
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -111,6 +112,9 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
+		*/
+		
+		// :33 < hi teles!! so we can reuse the above code for our own style of version stuff, but I commented it out so it doesn't show up on the menu.
 
 		// NG.core.calls.event.logEvent('swag').send();
 

@@ -1,33 +1,15 @@
 {
 	"animations": [
 		{
-			"loop": true,
 			"offsets": [
-				-3,
-				-75
-			],
-			"anim": "deathLoop",
-			"fps": 24,
-			"name": "deathloop",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				0
+				37,
+				231
 			],
 			"loop": false,
 			"fps": 24,
-			"anim": "deathConfirm",
-			"indices": [],
-			"name": "deathretry"
-		},
-		{
-			"offsets": [
-				10,
-				-70
-			],
+			"anim": "firstDeath",
 			"indices": [
+				0,
 				1,
 				2,
 				3,
@@ -42,17 +24,51 @@
 				12,
 				13
 			],
-			"fps": 24,
-			"anim": "firstDeath",
-			"loop": false,
 			"name": "death"
+		},
+		{
+			"offsets": [
+				37,
+				234
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13
+			],
+			"name": "death"
+		},
+		{
+			"offsets": [
+				28,
+				287
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "deathretry"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/bfmspa",
 	"position": [
-		-20,
-		-20
+		0,
+		230
 	],
 	"healthicon": "bf",
 	"flip_x": true,
@@ -62,9 +78,9 @@
 		209
 	],
 	"camera_position": [
-		0,
-		230
+		90,
+		-230
 	],
 	"sing_duration": 4,
-	"scale": 0.6
+	"scale": 0.7
 }
