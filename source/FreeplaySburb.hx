@@ -27,14 +27,14 @@ using StringTools;
 
 class FreeplaySburb extends MusicBeatState
 {
-	public static var curCategory:String = 'Main'; //This is also used for Discord RPC
+	public static var curCategory:String = 'Vol1'; //This is also used for Discord RPC
 	var curSelected:Int = -1;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var covers:FlxTypedGroup<FlxSprite>;
 	
 	var songs:Map<String, Array<Dynamic>> = [
-		'Main' => [
+		'Vol1' => [
 			['Prankster', 'egbert'],
 			['Grimoire', 'rose'],
 			['Record-Scratch', 'dave'],
@@ -73,7 +73,7 @@ class FreeplaySburb extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		var baseCover:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/i-' + curCategory.toLowerCase(), "sburb"));
+		var baseCover:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/cover-' + curCategory.toLowerCase(), "sburb"));
 		//bg.setGraphicSize(Std.int(bg.width * 1.175));
 		baseCover.updateHitbox();
 		baseCover.screenCenter();
@@ -105,7 +105,7 @@ class FreeplaySburb extends MusicBeatState
 			menuItem.antialiasing = true;
 			menuItem.updateHitbox();
 
-			var coverArt:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/i-' + songs.get(curCategory)[i][1].toLowerCase(), "sburb"));
+			var coverArt:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/cover-' + songs.get(curCategory)[i][1].toLowerCase(), "sburb"));
 			//bg.setGraphicSize(Std.int(bg.width * 1.175));
 			coverArt.alpha = 0;
 			coverArt.updateHitbox();
@@ -161,19 +161,20 @@ class FreeplaySburb extends MusicBeatState
 							//song code goes here lmaoooooooooooooooooooooooooo
 						});
 					}
-				}
+
+					covers.forEach(function(spr:FlxSprite):Void
+					{
+						if(spr.ID == curSelected){
+							spr.alpha = 1;
+						}
+						else{
+							spr.alpha = 0;
+						}
+					});
+				}	
 				else{
 					curSelected = -1;
-				}
-			});
-
-			covers.forEach(function(spr:FlxSprite)
-			{
-				if(spr.ID == curSelected){
-					spr.alpha = 1;
-				}
-				else{
-					spr.alpha = 0;
+					// Right Here <-------------
 				}
 			});
 		}
