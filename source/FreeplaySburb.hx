@@ -41,10 +41,10 @@ class FreeplaySburb extends MusicBeatState
 			['Sunshatter', 'jade'],                // - :33 < then you put in the name of the cofurr art for your song.
 		],                                         // - :33 < Then, if you would like to, you can make a whole new ~~Cat-egory~~!!
 		'Misc' => [                                // - :33 < The code for other cat-egories will be added latepurr on by the 
-			['Abjure', 'abjure'],				   // - :33 < Haxe Master themselves, Teles :))
+			['Abjure', 'misc'],				   // - :33 < Haxe Master themselves, Teles :))
 		],
 		'Covers' => [
-			['Showtime', 'bonus'],
+			['Showtime', 'covers'],
 		],
 	];
 
@@ -138,7 +138,7 @@ class FreeplaySburb extends MusicBeatState
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new MainMenuState());
+				MusicBeatState.switchState(new FreeplaySelectorTheSecond());
 			}
 
 			// This is the start of the mouse clicking code.

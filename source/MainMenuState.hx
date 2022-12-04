@@ -70,6 +70,14 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		/*
+		cake = new FlxSprite(0).loadGraphic(Paths.image('menu/cake', "sburb"));
+		cake.updateHitbox();
+		cake.screenCenter();
+		cake.antialiasing = ClientPrefs.globalAntialiasing;
+		add(cake);
+		*/
 		
 		// magenta.scrollFactor.set();
 
@@ -163,7 +171,7 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new FreeplaySburb());
+										MusicBeatState.switchState(new FreeplaySelectorTheSecond());
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':
