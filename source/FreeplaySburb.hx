@@ -37,11 +37,11 @@ class FreeplaySburb extends MusicBeatState
 		'Vol1' => [
 			['Prankster', 'egbert'],
 			['Grimoire', 'rose'],
-			['Record-Scratch', 'dave'],
-			['Sunshatter', 'jade'],
-		],
-		'Misc' => [
-			['Abjure', 'abjure'],
+			['Record-Scratch', 'dave'],            // - :33 < Alright so the way this works is you put in your song's name
+			['Sunshatter', 'jade'],                // - :33 < then you put in the name of the cofurr art for your song.
+		],                                         // - :33 < Then, if you would like to, you can make a whole new ~~Cat-egory~~!!
+		'Misc' => [                                // - :33 < The code for other cat-egories will be added latepurr on by the 
+			['Abjure', 'abjure'],				   // - :33 < Haxe Master themselves, Teles :))
 		],
 		'Covers' => [
 			['Showtime', 'bonus'],
@@ -72,14 +72,15 @@ class FreeplaySburb extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
-
+		
+		// This adds in the base covers for each category of songs in freeplay
 		var baseCover:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/cover-' + curCategory.toLowerCase(), "sburb"));
 		//bg.setGraphicSize(Std.int(bg.width * 1.175));
 		baseCover.updateHitbox();
 		baseCover.screenCenter();
 		baseCover.antialiasing = ClientPrefs.globalAntialiasing;
 		add(baseCover);
-		
+
 		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
@@ -95,6 +96,7 @@ class FreeplaySburb extends MusicBeatState
 
 		for (i in 0...songs.get(curCategory).length)
 		{
+			//This loads in all of the buttons for the freeplay menu
 			var menuItem:FlxSprite = new FlxSprite(-200, 300 + (i * 43));
 			menuItem.loadGraphic(Paths.image('freeplay/' + songs.get(curCategory)[i][0].toLowerCase(), "sburb"));
 			menuItem.ID = i;
@@ -105,6 +107,7 @@ class FreeplaySburb extends MusicBeatState
 			menuItem.antialiasing = true;
 			menuItem.updateHitbox();
 
+			//This loads in all of the cover art for the freeplay menu, save for the base category images
 			var coverArt:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/cover-' + songs.get(curCategory)[i][1].toLowerCase(), "sburb"));
 			//bg.setGraphicSize(Std.int(bg.width * 1.175));
 			coverArt.alpha = 0;
@@ -135,12 +138,13 @@ class FreeplaySburb extends MusicBeatState
 			{
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
+				MusicBeatState.switchState(new MainMenuState());
 			}
 
+			// This is the start of the mouse clicking code.
 			menuItems.forEach(function(spr:FlxSprite)
 			{
-				if(FlxG.mouse.overlaps(spr)){
+				if(FlxG.mouse.overlaps((spr:FlxSprite))){
 					curSelected = spr.ID;
 					if(FlxG.mouse.justPressed){
 						var songLowercase:String = Paths.formatToSongPath(songs.get(curCategory)[spr.ID][0].toLowerCase());
@@ -161,7 +165,6 @@ class FreeplaySburb extends MusicBeatState
 							//song code goes here lmaoooooooooooooooooooooooooo
 						});
 					}
-
 					covers.forEach(function(spr:FlxSprite):Void
 					{
 						if(spr.ID == curSelected){
@@ -171,14 +174,29 @@ class FreeplaySburb extends MusicBeatState
 							spr.alpha = 0;
 						}
 					});
-				}	
-				else{
-					curSelected = -1;
-					// Right Here <-------------
 				}
 			});
-		}
 
+			//This is INCREDIBLY Jank, and should be re-written to be better interlaced with the rest of the code 1000000%, but it works. Anyways...
+			var mouseHover:Bool = false;
+			if(FlxG.mouse.overlaps(menuItems)){
+				mouseHover = true;                 // - This checks to see if the mouse is hovering over ANY menu item, and sets hover to true if so
+			}
+			else{
+				mouseHover = false;                // - This does the opposite.
+			}
+
+			if(mouseHover == false){         // - This was the kicker, actually :33
+				curSelected = -1;            // - The way it was working before was that it thought the mouse was not on the menu at all, because it was only on one part of it.
+			}                                // - This code fixes that issue, but is entirely dependant on the above mouseHover code
+
+			if(curSelected == -1){          
+				covers.forEach(function(spr:FlxSprite):Void      // - This code just turns off all the sprites if the mouse isn't on a menu
+				{                                                // - 
+					spr.alpha = 0;                               // - Because if mouseHover isn't true, curSelected is -1 :33 
+				});
+			}
+		}
 		super.update(elapsed);
 	}
 }
