@@ -147,22 +147,20 @@ class FreeplaySburb extends MusicBeatState
 				if(FlxG.mouse.overlaps((spr:FlxSprite))){
 					curSelected = spr.ID;
 					if(FlxG.mouse.justPressed){
-						var songLowercase:String = Paths.formatToSongPath(songs.get(curCategory)[spr.ID][0].toLowerCase());
-						var poop:String = Highscore.formatSong(songLowercase, 1);
-						trace(poop);
-
-						PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-						PlayState.isStoryMode = false;
-						PlayState.storyDifficulty = 1;
-
-						LoadingState.loadAndSwitchState(new PlayState());
-
 						selectedSomethin = true;
 						FlxG.sound.play(Paths.sound("confirmMenu"), 0.7);
 						//FlxG.camera.fade(FlxColor.WHITE,1);
 						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 						{
-							//song code goes here lmaoooooooooooooooooooooooooo
+							var songLowercase:String = Paths.formatToSongPath(songs.get(curCategory)[spr.ID][0].toLowerCase());
+							var poop:String = Highscore.formatSong(songLowercase, 1);
+							trace(poop);
+	
+							PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+							PlayState.isStoryMode = false;
+							PlayState.storyDifficulty = 1;
+	
+							LoadingState.loadAndSwitchState(new PlayState());
 						});
 					}
 					covers.forEach(function(spr:FlxSprite):Void
