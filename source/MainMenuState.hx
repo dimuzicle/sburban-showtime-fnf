@@ -313,7 +313,7 @@ class MainMenuState extends MusicBeatState
 		if(FlxG.mouse.overlaps(paper)){
 			if(FlxG.mouse.justPressed){
 				if(ClientPrefs.secret1 && ClientPrefs.secret2 == true){
-					FlxG.sound.play(Paths.sound("horn"), 3.0);
+					FlxG.sound.play(Paths.sound("horn"), 1);
 					ClientPrefs.secret3 = true;
 				}
 			}

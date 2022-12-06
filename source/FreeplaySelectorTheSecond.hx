@@ -37,6 +37,8 @@ class FreeplaySelectorTheSecond extends MusicBeatState
     var mspaFace:FlxSprite;
     var homestuck:FlxSprite;
     var help:FlxSprite;
+    var goBack:FlxSprite;
+    var start:FlxSprite;
 
     override function create()
     {
@@ -139,6 +141,24 @@ class FreeplaySelectorTheSecond extends MusicBeatState
 		help.alpha = 0;
 		add(help);
 
+        goBack = new FlxSprite().loadGraphic(Paths.image('freeplay/back', "sburb"));
+        goBack.scale.set(.8, .8);
+        goBack.updateHitbox();
+        goBack.screenCenter();
+        goBack.antialiasing = ClientPrefs.globalAntialiasing;
+        goBack.y += 320;
+        goBack.x -= 450;
+        add(goBack);
+
+        start = new FlxSprite().loadGraphic(Paths.image('freeplay/start', "sburb"));
+        start.scale.set(.8, .8);
+        start.updateHitbox();
+        start.screenCenter();
+        start.antialiasing = ClientPrefs.globalAntialiasing;
+        start.y += 320;
+        start.x -= 530;
+        add(start);
+
         super.create();
     }
     var selectedSomethin:Bool = false;
@@ -193,23 +213,32 @@ class FreeplaySelectorTheSecond extends MusicBeatState
         //:33 < Some more fun secret stuff, please don't tell!!
 		if(FlxG.mouse.overlaps(candyCorn1) || FlxG.mouse.overlaps(candyCorn2) || FlxG.mouse.overlaps(candyCorn3) || FlxG.mouse.overlaps(candyCorn4)){
             if(FlxG.mouse.justPressed){
-				FlxG.sound.play(Paths.sound("crunch"), 3.0);
+				FlxG.sound.play(Paths.sound("crunch"), 1);
     		}
         }
 
         if(FlxG.mouse.overlaps(help) && FlxG.mouse.justPressed){
-			FlxG.sound.play(Paths.sound("horn"), 3.0);
+			FlxG.sound.play(Paths.sound("horn"), 1);
 			ClientPrefs.secret1 = true;
 		}
 
         if(FlxG.mouse.overlaps(mspaFace) && FlxG.mouse.justPressed){
-            FlxG.sound.play(Paths.sound("alert"), 3.0);
+            FlxG.sound.play(Paths.sound("alert"), 1);
             mspaFace.alpha = 1;
         }
 
         if(FlxG.mouse.overlaps(homestuck) && FlxG.mouse.justPressed){
             CoolUtil.browserLoad("https://bambosh.dev/unofficial-homestuck-collection/");
         }
+
+        if(FlxG.mouse.overlaps(goBack) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new MainMenuState());
+		}
+		if(FlxG.mouse.overlaps(start) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new MainMenuState());
+		}
 
         super.update(elapsed);
     }
