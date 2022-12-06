@@ -421,7 +421,7 @@ class PlayState extends MusicBeatState
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
 		if (isStoryMode)
 		{
-			detailsText = "Story Mode: " + WeekData.getCurrentWeek().weekName;
+			detailsText = "Story Mode: " + "Beta Kids";
 		}
 		else
 		{
@@ -3600,7 +3600,7 @@ class PlayState extends MusicBeatState
 					if(FlxTransitionableState.skipNextTransIn) {
 						CustomFadeTransition.nextCamera = null;
 					}
-					MusicBeatState.switchState(new StoryMenuState());
+					MusicBeatState.switchState(new MainMenuState());
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {

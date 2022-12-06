@@ -326,6 +326,7 @@ class StoryMenuState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 				FreeplayState.destroyFreeplayVocals();
 			});
+			trace(songArray);
 		} else {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}

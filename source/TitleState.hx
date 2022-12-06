@@ -69,6 +69,7 @@ class TitleState extends MusicBeatState
 	var titleTextAlphas:Array<Float> = [1, .64];
 
 	var curWacky:Array<String> = [];
+	var curWacky2:Array<String> = [];
 
 	var wackyImage:FlxSprite;
 
@@ -123,6 +124,7 @@ class TitleState extends MusicBeatState
 		PlayerSettings.init();
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
+		curWacky2 = FlxG.random.getObject(getIntroTextShit());
 
 		// DEBUG BULLSHIT
 
@@ -396,7 +398,7 @@ class TitleState extends MusicBeatState
 		// credTextShit.alignment = CENTER;
 
 		credTextShit.visible = false;
-
+		
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
@@ -637,14 +639,15 @@ class TitleState extends MusicBeatState
 					//FlxG.sound.music.stop();
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
-				case 2:
+				case 3:
+					
 					#if PSYCH_WATERMARKS
 					createCoolText(['Psych Engine by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
 				// credTextShit.visible = true;
-				case 4:
+				case 5:
 					#if PSYCH_WATERMARKS
 					addMoreText('Shadow Mario', 15);
 					addMoreText('RiverOaken', 15);
@@ -654,49 +657,58 @@ class TitleState extends MusicBeatState
 					#end
 				// credTextShit.text += '\npresent...';
 				// credTextShit.addText();
-				case 5:
+				case 7:
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = 'In association \nwith';
 				// credTextShit.screenCenter();
-				case 6:
+				case 9:
 					#if PSYCH_WATERMARKS
 					createCoolText(['Not associated', 'with'], -40);
 					#else
 					createCoolText(['In association', 'with'], -40);
 					#end
-				case 8:
+				case 11:
 					addMoreText('newgrounds', -40);
 					ngSpr.visible = true;
 				// credTextShit.text += '\nNewgrounds';
-				case 9:
+				case 13:
 					deleteCoolText();
 					ngSpr.visible = false;
 				// credTextShit.visible = false;
 
 				// credTextShit.text = 'Shoutouts Tom Fulp';
 				// credTextShit.screenCenter();
-				case 10:
+				case 15:
 					createCoolText([curWacky[0]]);
 				// credTextShit.visible = true;
-				case 12:
+				case 17:
 					addMoreText(curWacky[1]);
 				// credTextShit.text += '\nlmao';
-				case 13:
+				case 19:
 					deleteCoolText();
 				// credTextShit.visible = false;
 				// credTextShit.text = "Friday";
 				// credTextShit.screenCenter();
-				case 14:
-					addMoreText('Friday');
+				case 21:
+					createCoolText([curWacky2[0]]);
 				// credTextShit.visible = true;
-				case 15:
-					addMoreText('Night');
+				case 23:
+					addMoreText(curWacky2[1]);
 				// credTextShit.text += '\nNight';
-				case 16:
-					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+				case 25:
+					deleteCoolText(); // credTextShit.text += '\nFunkin';
 
-				case 17:
+				case 27:
+					addMoreText("Sburban");
+
+				case 29:
+					addMoreText("Show");
+				
+				case 31:
+					addMoreText("Time");
+				
+				case 33:
 					skipIntro();
 			}
 		}

@@ -39,6 +39,8 @@ class FreeplaySelectorTheSecond extends MusicBeatState
     var help:FlxSprite;
     var goBack:FlxSprite;
     var start:FlxSprite;
+    var settings:FlxSprite;
+    var credits:FlxSprite;
 
     override function create()
     {
@@ -159,6 +161,24 @@ class FreeplaySelectorTheSecond extends MusicBeatState
         start.x -= 530;
         add(start);
 
+        settings = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		settings.scale.set(1.2, .3);
+		settings.updateHitbox();
+		settings.screenCenter();
+		settings.alpha = 0;
+		settings.y -= 323;
+		settings.x += 260;
+		add(settings);
+
+		credits = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		credits.scale.set(1.1, .3);
+		credits.updateHitbox();
+		credits.screenCenter();
+		credits.alpha = 0;
+		credits.y -= 323;
+		credits.x += 325;
+		add(credits);
+
         super.create();
     }
     var selectedSomethin:Bool = false;
@@ -238,6 +258,15 @@ class FreeplaySelectorTheSecond extends MusicBeatState
 		if(FlxG.mouse.overlaps(start) && FlxG.mouse.justPressed){
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			MusicBeatState.switchState(new MainMenuState());
+		}
+
+        if(FlxG.mouse.overlaps(settings) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new options.OptionsState());
+		}
+		if(FlxG.mouse.overlaps(credits) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new CreditsState());
 		}
 
         super.update(elapsed);

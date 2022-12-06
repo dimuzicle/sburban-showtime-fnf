@@ -40,13 +40,15 @@ class FreeplaySburb extends MusicBeatState
 	var magnet:FlxSprite;
 	var goBack:FlxSprite;
 	var start:FlxSprite;
+	var settings:FlxSprite;
+	var credits:FlxSprite;
 	
 	var songs:Map<String, Array<Dynamic>> = [
 		'Vol1' => [
 			['Prankster', 'egbert'],
-			['Record-Scratch', 'dave'],
-			['Sunshatter', 'jade'],                // - :33 < Alright so the way this works is you put in your song's name
-			['Gin-And-Needles', 'rose'],           // - :33 < then you put in the name of the cofurr art for your song.
+			['Gin-And-Needles', 'rose'],
+			['Record-Scratch', 'dave'],            // - :33 < Alright so the way this works is you put in your song's name
+			['Sunshatter', 'jade'],                // - :33 < then you put in the name of the cofurr art for your song.
 		],                                         // - :33 < Then, if you would like to, you can make a whole new ~~Cat-egory~~!!
 		'Misc' => [                                // - :33 < The code for other cat-egories will be added latepurr on by the 
 			['Abjure', 'misc'],				       // - :33 < Haxe Master themselves, Teles :))
@@ -200,6 +202,24 @@ class FreeplaySburb extends MusicBeatState
         start.x -= 530;
         add(start);
 
+		settings = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		settings.scale.set(1.2, .3);
+		settings.updateHitbox();
+		settings.screenCenter();
+		settings.alpha = 0;
+		settings.y -= 323;
+		settings.x += 260;
+		add(settings);
+
+		credits = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		credits.scale.set(1.1, .3);
+		credits.updateHitbox();
+		credits.screenCenter();
+		credits.alpha = 0;
+		credits.y -= 323;
+		credits.x += 325;
+		add(credits);
+
 		super.create();
 	}
 
@@ -237,7 +257,7 @@ class FreeplaySburb extends MusicBeatState
 						
 						// :33 < this checks to see if the player has found the cake secret or not, h33h33
 						if(songLowercase == 'abjure' && ClientPrefs.cakeSecret == false){
-							FlxG.sound.play(Paths.sound("cancelMenu"), 1);
+							FlxG.sound.play(Paths.sound("nope"), .7);
 							selectedSomethin = false;
 							cakeNote.alpha = 1;
 						}
@@ -307,6 +327,15 @@ class FreeplaySburb extends MusicBeatState
 		if(FlxG.mouse.overlaps(start) && FlxG.mouse.justPressed){
 			FlxG.sound.play(Paths.sound('confirmMenu'));
 			MusicBeatState.switchState(new MainMenuState());
+		}
+
+		if(FlxG.mouse.overlaps(settings) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new options.OptionsState());
+		}
+		if(FlxG.mouse.overlaps(credits) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			MusicBeatState.switchState(new CreditsState());
 		}
 
 		super.update(elapsed);

@@ -140,8 +140,8 @@ class PauseSubState extends MusicBeatSubstate
 	override function update(elapsed:Float)
 	{
 		cantUnpause -= elapsed;
-		if (pauseMusic.volume < 0.5)
-			pauseMusic.volume += 0.01 * elapsed;
+		if (pauseMusic.volume < 1)
+			pauseMusic.volume += 0.05 * elapsed;
 
 		super.update(elapsed);
 		updateSkipTextStuff();
@@ -257,7 +257,7 @@ class PauseSubState extends MusicBeatSubstate
 
 					WeekData.loadTheFirstEnabledMod();
 					if(PlayState.isStoryMode) {
-						MusicBeatState.switchState(new StoryMenuState());
+						MusicBeatState.switchState(new MainMenuState());
 					} else {
 						MusicBeatState.switchState(new FreeplaySburb());
 					}

@@ -134,7 +134,10 @@ class ClientPrefs {
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.checkForUpdates = checkForUpdates;
 		FlxG.save.data.comboStacking = comboStacking;
-	
+		FlxG.save.data.secret1 = secret1;
+		FlxG.save.data.secret2 = secret2;
+		FlxG.save.data.secret3 = secret3;
+		FlxG.save.data.cakeSecret = cakeSecret;	
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();

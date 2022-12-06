@@ -1,5 +1,6 @@
 package;
 
+import flixel.input.keyboard.FlxKeyboard.FlxKeyInput;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -22,6 +23,7 @@ import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 import openfl.ui.Mouse;
 import openfl.ui.MouseCursor;
+import flixel.util.FlxTimer;
 
 using StringTools;
 
@@ -214,7 +216,14 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
+										PlayState.storyPlaylist = ['Prankster','Gin-And-Needles','Record-Scratch','Sunshatter'];
+										PlayState.isStoryMode = true;
+
+										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.campaignScore = 0;
+										PlayState.campaignMisses = 0;
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+										FreeplayState.destroyFreeplayVocals();
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplaySelectorTheSecond());
 									case 'credits':
@@ -330,6 +339,14 @@ class MainMenuState extends MusicBeatState
 
 			}
 		}
+
+		ClientPrefs.saveSettings();
+		
+		if (FlxG.keys.justPressed.SEVEN)
+			{
+				MusicBeatState.switchState(new editors.MasterEditorMenu());
+			}
+
 		super.update(elapsed);
 
 		/*
@@ -338,6 +355,7 @@ class MainMenuState extends MusicBeatState
 			spr.screenCenter(X);
 		});
 		*/
+
 	}
 
 	function changeItem(huh:Int = 0)
