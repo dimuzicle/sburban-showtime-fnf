@@ -87,6 +87,15 @@ class MainMenuState extends MusicBeatState
 		cake.antialiasing = ClientPrefs.globalAntialiasing;
 		add(cake);
 
+		sburb = new FlxSprite().loadGraphic(Paths.image('menu/sburb', "sburb"));
+		sburb.updateHitbox();
+		sburb.screenCenter();
+		sburb.y -= 234;
+		sburb.x += 40;
+		sburb.alpha = 1;
+		add(sburb);
+
+
 		// :33 < This loads in the abjure!!! paper! :))
 
 		abjureMenu = new FlxSprite(0).loadGraphic(Paths.image('menu/abjureMenu', "sburb"));
@@ -105,14 +114,6 @@ class MainMenuState extends MusicBeatState
 		paper.y = 247;
 		paper.alpha = 0;
 		add(paper);
-
-		sburb = new FlxSprite().loadGraphic(Paths.image('menu/sburb', "sburb"));
-		sburb.updateHitbox();
-		sburb.screenCenter();
-		sburb.y -= 234;
-		sburb.x += 40;
-		sburb.alpha = 1;
-		add(sburb);
 
 		square = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
 		square.scale.set(.27, .27);
