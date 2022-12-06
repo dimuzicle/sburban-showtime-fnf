@@ -1,6 +1,6 @@
 {
 	"storyName": "Your New Week",
-	"difficulties": "Normal",
+	"difficulties": "Easy, Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"weekBefore": "tutorial",
@@ -22,6 +22,15 @@
 			]
 		],
 		[
+			"record-scratch",
+			"dave",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
 			"sunshatter",
 			"jade",
 			[
@@ -31,17 +40,8 @@
 			]
 		],
 		[
-			"pouncegreet",
+			"gin-and-needles",
 			"rose",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"record-scratch",
-			"dave",
 			[
 				146,
 				113,

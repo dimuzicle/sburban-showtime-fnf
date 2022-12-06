@@ -16,6 +16,7 @@ import flixel.FlxSubState;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.addons.display.FlxBackdrop;
 import flixel.util.FlxSave;
 import haxe.Json;
 import flixel.tweens.FlxEase;
@@ -37,15 +38,15 @@ class OptionsState extends MusicBeatState
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Note Colors':
-				openSubState(new options.NotesSubState());
+				openSubState(new options.NotesSubState()); // :33 < BG Fixed h33h33
 			case 'Controls':
-				openSubState(new options.ControlsSubState());
+				openSubState(new options.ControlsSubState()); // :33 < BG Fixed h33h33
 			case 'Graphics':
-				openSubState(new options.GraphicsSettingsSubState());
+				openSubState(new options.GraphicsSettingsSubState()); // :33 < BG Fixed h33h33
 			case 'Visuals and UI':
-				openSubState(new options.VisualsUISubState());
+				openSubState(new options.VisualsUISubState()); // :33 < BG Fixed h33h33
 			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
+				openSubState(new options.GameplaySettingsSubState()); // :33 < BG Fixed h33h33
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
 		}
@@ -58,14 +59,36 @@ class OptionsState extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end
+		
+		/*
+		:33 < This code adds in a grid and makes it scroll!! supurr fancy, I know
+		:33 < Anyways, there is also a tint that gets added which is really impurrtant for
+		:33 < Readability purrposes, and if you wanted you could change the colour code
+		:33 < To whatefur you'd prefur it to be!! The original image is black and white 
+		:33 < So it'd work fur whatefur you'd want :))
+		*/
+
+		var backdrop:FlxSprite = new FlxBackdrop(Paths.image('menu/grid', "sburb"), XY, 0, 0); 
+        backdrop.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
+        backdrop.screenCenter(); 
+		backdrop.color = 0xFFea71fd;
+        add(backdrop);
+
+		var tint:FlxSprite = new FlxSprite(Paths.image('menu/tint', "sburb"));
+		tint.screenCenter();
+		add(tint);
+
+		/*
+		:33 < All this junk is the old background code h33h33
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
-
+		
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+		*/
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);

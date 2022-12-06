@@ -26,6 +26,7 @@ import flash.geom.Rectangle;
 import flixel.ui.FlxButton;
 import flixel.FlxBasic;
 import sys.io.File;
+import flixel.addons.display.FlxBackdrop;
 /*import haxe.zip.Reader;
 import haxe.zip.Entry;
 import haxe.zip.Uncompress;
@@ -75,10 +76,15 @@ class ModsMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
-		bg.screenCenter();
+		var backdrop:FlxSprite = new FlxBackdrop(Paths.image('menu/grid', "sburb"), XY, 0, 0); 
+        backdrop.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
+        backdrop.screenCenter(); 
+		backdrop.color = 0xFFea71fd;
+        add(backdrop);
+
+		var tint:FlxSprite = new FlxSprite(Paths.image('menu/tint', "sburb"));
+		tint.screenCenter();
+		add(tint);
 
 		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
 		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nBITCH.'; //meanie

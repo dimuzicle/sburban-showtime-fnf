@@ -30,6 +30,14 @@ class FreeplaySelectorTheSecond extends MusicBeatState
     var vol1:FlxSprite;
     var misc:FlxSprite;
     var cover:FlxSprite;
+    var candyCorn1:FlxSprite;
+    var candyCorn2:FlxSprite;
+    var candyCorn3:FlxSprite;
+    var candyCorn4:FlxSprite;
+    var mspaFace:FlxSprite;
+    var homestuck:FlxSprite;
+    var help:FlxSprite;
+
     override function create()
     {
         FlxG.mouse.visible = true;
@@ -68,6 +76,69 @@ class FreeplaySelectorTheSecond extends MusicBeatState
 		cover.antialiasing = ClientPrefs.globalAntialiasing;
 		add(cover);
 
+        candyCorn1 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn1.scale.set(.25, .3);
+        candyCorn1.updateHitbox();
+		candyCorn1.screenCenter();
+		candyCorn1.y -= 323;
+		candyCorn1.x += 47;
+		candyCorn1.alpha = 0;
+		add(candyCorn1);
+
+		candyCorn2 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn2.scale.set(.25, .3);
+        candyCorn2.updateHitbox();
+		candyCorn2.screenCenter();
+		candyCorn2.y -= 323;
+		candyCorn2.x += 168;
+		candyCorn2.alpha = 0;
+		add(candyCorn2);
+
+		candyCorn3 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn3.scale.set(.25, .3);
+        candyCorn3.updateHitbox();
+		candyCorn3.screenCenter();
+		candyCorn3.y -= 323;
+		candyCorn3.x -= 112;
+		candyCorn3.alpha = 0;
+		add(candyCorn3);
+
+		candyCorn4 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn4.scale.set(.25, .3);
+        candyCorn4.updateHitbox();
+		candyCorn4.screenCenter();
+		candyCorn4.y -= 323;
+		candyCorn4.x -= 180;
+		candyCorn4.alpha = 0;
+		add(candyCorn4);
+
+        mspaFace = new FlxSprite().loadGraphic(Paths.image('freeplay/suprised', "sburb"));
+		mspaFace.scale.set(1, 1);
+        mspaFace.updateHitbox();
+		mspaFace.screenCenter();
+		mspaFace.y -= 294;
+		mspaFace.x += 481;
+		mspaFace.alpha = 0;
+		add(mspaFace);
+
+        homestuck = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        homestuck.scale.set(3.2, .3);
+		homestuck.updateHitbox();
+		homestuck.screenCenter();
+		homestuck.y -= 323;
+		homestuck.x -= 278;
+		homestuck.alpha = 0;
+		add(homestuck);
+
+        help = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		help.scale.set(.6, .3);
+		help.updateHitbox();
+		help.screenCenter();
+		help.y -= 323;
+		help.x -= 146;
+		help.alpha = 0;
+		add(help);
+
         super.create();
     }
     var selectedSomethin:Bool = false;
@@ -85,9 +156,9 @@ class FreeplaySelectorTheSecond extends MusicBeatState
             if(FlxG.mouse.overlaps(vol1)){
                 if(FlxG.mouse.justPressed){
                     selectedSomethin = true;
-                    FlxG.sound.play(Paths.sound("confirmMenu"), 0.7);
+                    FlxG.sound.play(Paths.sound("confirmMenu"), 1.5);
                     //FlxG.camera.fade(FlxColor.WHITE,1);
-                    FlxFlicker.flicker(vol1, 1, 0.06, false, false, function(flick:FlxFlicker)
+                    FlxFlicker.flicker(vol1, .5, 0.06, false, false, function(flick:FlxFlicker)
                     {
                         selectSmth('Vol1');
                     });
@@ -97,9 +168,9 @@ class FreeplaySelectorTheSecond extends MusicBeatState
             if(FlxG.mouse.overlaps(misc)){
                 if(FlxG.mouse.justPressed){
                     selectedSomethin = true;
-                    FlxG.sound.play(Paths.sound("confirmMenu"), 0.7);
+                    FlxG.sound.play(Paths.sound("confirmMenu"), 1.5);
                     //FlxG.camera.fade(FlxColor.WHITE,1);
-                    FlxFlicker.flicker(misc, 1, 0.06, false, false, function(flick:FlxFlicker)
+                    FlxFlicker.flicker(misc, .5, 0.06, false, false, function(flick:FlxFlicker)
                     {
                         selectSmth('Misc');
                     });
@@ -109,15 +180,37 @@ class FreeplaySelectorTheSecond extends MusicBeatState
             if(FlxG.mouse.overlaps(cover)){
                 if(FlxG.mouse.justPressed){
                     selectedSomethin = true;
-                    FlxG.sound.play(Paths.sound("confirmMenu"), 0.7);
+                    FlxG.sound.play(Paths.sound("confirmMenu"), 1.5);
                     //FlxG.camera.fade(FlxColor.WHITE,1);
-                    FlxFlicker.flicker(cover, 1, 0.06, false, false, function(flick:FlxFlicker)
+                    FlxFlicker.flicker(cover, .5, 0.06, false, false, function(flick:FlxFlicker)
                     {
                         selectSmth('Covers');
                     });
                 }
             }
         }
+
+        //:33 < Some more fun secret stuff, please don't tell!!
+		if(FlxG.mouse.overlaps(candyCorn1) || FlxG.mouse.overlaps(candyCorn2) || FlxG.mouse.overlaps(candyCorn3) || FlxG.mouse.overlaps(candyCorn4)){
+            if(FlxG.mouse.justPressed){
+				FlxG.sound.play(Paths.sound("crunch"), 3.0);
+    		}
+        }
+
+        if(FlxG.mouse.overlaps(help) && FlxG.mouse.justPressed){
+			FlxG.sound.play(Paths.sound("horn"), 3.0);
+			ClientPrefs.secret1 = true;
+		}
+
+        if(FlxG.mouse.overlaps(mspaFace) && FlxG.mouse.justPressed){
+            FlxG.sound.play(Paths.sound("alert"), 3.0);
+            mspaFace.alpha = 1;
+        }
+
+        if(FlxG.mouse.overlaps(homestuck) && FlxG.mouse.justPressed){
+            CoolUtil.browserLoad("https://bambosh.dev/unofficial-homestuck-collection/");
+        }
+
         super.update(elapsed);
     }
 

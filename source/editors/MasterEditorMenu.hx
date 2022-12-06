@@ -11,6 +11,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.addons.display.FlxBackdrop;
 import flixel.system.FlxSound;
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -43,10 +44,15 @@ class MasterEditorMenu extends MusicBeatState
 		DiscordClient.changePresence("Editors Main Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.scrollFactor.set();
-		bg.color = 0xFF353535;
-		add(bg);
+		var backdrop:FlxSprite = new FlxBackdrop(Paths.image('menu/grid', "sburb"), XY, 0, 0); 
+        backdrop.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
+        backdrop.screenCenter(); 
+		backdrop.color = 0xFF353535;
+        add(backdrop);
+
+		var tint:FlxSprite = new FlxSprite(Paths.image('menu/tint', "sburb"));
+		tint.screenCenter();
+		add(tint);
 
 		grpTexts = new FlxTypedGroup<Alphabet>();
 		add(grpTexts);

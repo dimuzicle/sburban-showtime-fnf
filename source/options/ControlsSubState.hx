@@ -23,6 +23,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
+import flixel.addons.display.FlxBackdrop;
 import Controls;
 
 using StringTools;
@@ -71,11 +72,23 @@ class ControlsSubState extends MusicBeatSubstate {
 	public function new() {
 		super();
 
+		var backdrop:FlxSprite = new FlxBackdrop(Paths.image('menu/grid', "sburb"), XY, 0, 0); 
+        backdrop.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
+        backdrop.screenCenter(); 
+		backdrop.color = 0xFFea71fd;
+        add(backdrop);
+
+		var tint:FlxSprite = new FlxSprite(Paths.image('menu/tint', "sburb"));
+		tint.screenCenter();
+		add(tint);
+
+		/*
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+		*/
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);

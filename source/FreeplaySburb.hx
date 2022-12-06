@@ -32,16 +32,24 @@ class FreeplaySburb extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var covers:FlxTypedGroup<FlxSprite>;
+	var cakeNote:FlxSprite;
+	var candyCorn1:FlxSprite;
+	var candyCorn2:FlxSprite;
+	var candyCorn3:FlxSprite;
+	var candyCorn4:FlxSprite;
+	var magnet:FlxSprite;
+
+
 	
 	var songs:Map<String, Array<Dynamic>> = [
 		'Vol1' => [
 			['Prankster', 'egbert'],
-			['Grimoire', 'rose'],
-			['Record-Scratch', 'dave'],            // - :33 < Alright so the way this works is you put in your song's name
-			['Sunshatter', 'jade'],                // - :33 < then you put in the name of the cofurr art for your song.
+			['Record-Scratch', 'dave'],
+			['Sunshatter', 'jade'],                // - :33 < Alright so the way this works is you put in your song's name
+			['Gin-And-Needles', 'rose'],           // - :33 < then you put in the name of the cofurr art for your song.
 		],                                         // - :33 < Then, if you would like to, you can make a whole new ~~Cat-egory~~!!
 		'Misc' => [                                // - :33 < The code for other cat-egories will be added latepurr on by the 
-			['Abjure', 'misc'],				   // - :33 < Haxe Master themselves, Teles :))
+			['Abjure', 'misc'],				       // - :33 < Haxe Master themselves, Teles :))
 		],
 		'Covers' => [
 			['Showtime', 'covers'],
@@ -72,6 +80,18 @@ class FreeplaySburb extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		// :33 < This loads in the dadbert note!!
+
+		cakeNote = new FlxSprite().loadGraphic(Paths.image('freeplay/note', "sburb"));
+		cakeNote.updateHitbox();
+		cakeNote.screenCenter();
+		cakeNote.x -= 300;
+		cakeNote.y += 150;
+		cakeNote.scale.set(.7, .7);
+		cakeNote.antialiasing = ClientPrefs.globalAntialiasing;
+		cakeNote.alpha = 0;
+		add(cakeNote);
 		
 		// This adds in the base covers for each category of songs in freeplay
 		var baseCover:FlxSprite = new FlxSprite(0).loadGraphic(Paths.image('freeplay/cover-' + curCategory.toLowerCase(), "sburb"));
@@ -117,6 +137,51 @@ class FreeplaySburb extends MusicBeatState
 			coverArt.ID = i;
 			covers.add(coverArt);
 		}
+
+		candyCorn1 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn1.scale.set(.25, .3);
+        candyCorn1.updateHitbox();
+		candyCorn1.screenCenter();
+		candyCorn1.y -= 323;
+		candyCorn1.x += 47;
+		candyCorn1.alpha = 0;
+		add(candyCorn1);
+
+		candyCorn2 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn2.scale.set(.25, .3);
+        candyCorn2.updateHitbox();
+		candyCorn2.screenCenter();
+		candyCorn2.y -= 323;
+		candyCorn2.x += 168;
+		candyCorn2.alpha = 0;
+		add(candyCorn2);
+
+		candyCorn3 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn3.scale.set(.25, .3);
+        candyCorn3.updateHitbox();
+		candyCorn3.screenCenter();
+		candyCorn3.y -= 323;
+		candyCorn3.x -= 112;
+		candyCorn3.alpha = 0;
+		add(candyCorn3);
+
+		candyCorn4 = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+        candyCorn4.scale.set(.25, .3);
+        candyCorn4.updateHitbox();
+		candyCorn4.screenCenter();
+		candyCorn4.y -= 323;
+		candyCorn4.x -= 180;
+		candyCorn4.alpha = 0;
+		add(candyCorn4);
+
+		magnet = new FlxSprite().loadGraphic(Paths.image('freeplay/magnet', "sburb"));
+		magnet.updateHitbox();
+		magnet.screenCenter();
+		magnet.y -= 68;
+		magnet.x += 314;
+		magnet.alpha = 0;
+		add(magnet);
+
 		super.create();
 	}
 
@@ -148,20 +213,28 @@ class FreeplaySburb extends MusicBeatState
 					curSelected = spr.ID;
 					if(FlxG.mouse.justPressed){
 						selectedSomethin = true;
-						FlxG.sound.play(Paths.sound("confirmMenu"), 0.7);
-						//FlxG.camera.fade(FlxColor.WHITE,1);
-						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
-						{
-							var songLowercase:String = Paths.formatToSongPath(songs.get(curCategory)[spr.ID][0].toLowerCase());
-							var poop:String = Highscore.formatSong(songLowercase, 1);
-							trace(poop);
-	
-							PlayState.SONG = Song.loadFromJson(poop, songLowercase);
-							PlayState.isStoryMode = false;
-							PlayState.storyDifficulty = 1;
-	
-							LoadingState.loadAndSwitchState(new PlayState());
-						});
+						var songLowercase:String = Paths.formatToSongPath(songs.get(curCategory)[spr.ID][0].toLowerCase());
+						var poop:String = Highscore.formatSong(songLowercase, 1);
+						trace(poop);
+						
+						// :33 < this checks to see if the player has found the cake secret or not, h33h33
+						if(songLowercase == 'abjure' && ClientPrefs.cakeSecret == false){
+							FlxG.sound.play(Paths.sound("cancelMenu"), 1);
+							selectedSomethin = false;
+							cakeNote.alpha = 1;
+						}
+
+						else{
+							FlxG.sound.play(Paths.sound("confirmMenu"), 1.5);
+							//FlxG.camera.fade(FlxColor.WHITE,1);
+							FlxFlicker.flicker(spr, .5, 0.06, false, false, function(flick:FlxFlicker)
+							{
+								PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+								PlayState.isStoryMode = false;
+								PlayState.storyDifficulty = 1;
+								LoadingState.loadAndSwitchState(new PlayState());
+							});
+						}
 					}
 					covers.forEach(function(spr:FlxSprite):Void
 					{
@@ -194,6 +267,19 @@ class FreeplaySburb extends MusicBeatState
 					spr.alpha = 0;                               // - Because if mouseHover isn't true, curSelected is -1 :33 
 				});
 			}
+		}
+
+		// :33 < Some secret stuff, please don't tell!!
+		if(FlxG.mouse.overlaps(candyCorn1) || FlxG.mouse.overlaps(candyCorn2) || FlxG.mouse.overlaps(candyCorn3) || FlxG.mouse.overlaps(candyCorn4)){
+            if(FlxG.mouse.justPressed){
+				FlxG.sound.play(Paths.sound("crunch"), 3.0);
+    		}
+        }
+
+		if(FlxG.mouse.overlaps(magnet) && FlxG.mouse.justPressed && ClientPrefs.secret1){
+			FlxG.sound.play(Paths.sound("horn"), 3.0);
+			ClientPrefs.secret2 = true;
+			magnet.alpha = 1;
 		}
 		super.update(elapsed);
 	}

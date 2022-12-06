@@ -46,6 +46,7 @@ import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.Assets as OpenFlAssets;
 import openfl.utils.ByteArray;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 #if sys
@@ -238,10 +239,16 @@ class ChartingState extends MusicBeatState
 
 		vortex = FlxG.save.data.chart_vortex;
 		ignoreWarnings = FlxG.save.data.ignoreWarnings;
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.scrollFactor.set();
-		bg.color = 0xFF222222;
-		add(bg);
+		
+		var backdrop:FlxSprite = new FlxBackdrop(Paths.image('menu/grid', "sburb"), XY, 0, 0); 
+        backdrop.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
+        backdrop.screenCenter(); 
+		backdrop.color = 0xff4d4d4d;
+        add(backdrop);
+
+		var tint:FlxSprite = new FlxSprite(Paths.image('menu/tint', "sburb"));
+		tint.screenCenter();
+		add(tint);
 
 		gridLayer = new FlxTypedGroup<FlxSprite>();
 		add(gridLayer);

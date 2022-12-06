@@ -13,6 +13,7 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
+import flixel.addons.display.FlxBackdrop;
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
@@ -44,10 +45,26 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+		/*
+		:33 < This code adds in a grid and makes it scroll!! supurr fancy, I know
+		:33 < Anyways, there is also a tint that gets added which is really impurrtant for
+		:33 < Readability purrposes, and if you wanted you could change the colour code
+		:33 < To whatefur you'd prefur it to be!! The original image is black and white 
+		:33 < So it'd work fur whatefur you'd want :))
+		*/
+
+		bg = new FlxBackdrop(Paths.image('menu/grid', "sburb"), XY, 0, 0); 
+        bg.velocity.set(FlxG.random.bool(50) ? -90 : -90, FlxG.random.bool(50) ? -90 : 90); 
+        bg.screenCenter(); 
+		bg.color = 0xffeeff00;
+        add(bg);
+
+		var tint:FlxSprite = new FlxSprite(Paths.image('menu/tint', "sburb"));
+		tint.screenCenter();
+		//tint.alpha = 0.2;
+		add(tint);
+
 		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		add(bg);
-		bg.screenCenter();
 		
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -81,6 +98,23 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['Sburban Showdown Team'],
+			['Shoop',               'shoop',            'Co-Director and Animator',                                     'https://twitter.com/oppafandistyle',   'EEFF00'],
+			['CrabbChips',          'crabb',            'Co-Director and Musician',                                     'https://twitter.com/CrabbChips',       'EEFF00'],
+			['PaleArtist',          'pale',             'Main Artist',                                                  'https://twitter.com/artistpale',       'EEFF00'],
+			['teles',               'teles',            'Main Programmer and Musician',                                 'https://youtube.com/@telesfnf',        'EEFF00'],
+			['Hazlix',              'hazlix',           'Programmer, Charter, and Voice Actor',                         'https://twitter.com/hazelix_',         'EEFF00'],
+			['Sprons',              'sprons',           'Musician and Charter',                                         'https://spronszone.neocities.org',     'EEFF00'],
+			['Greenie',             'greenie',          'Musician, Artist, and Charter',                                'https://twitter.com/missusgreenie',    'EEFF00'],
+			['Jospi',               'jospi',            'Musician',                                                     'https://youtube.com/@JospiMusic',      'EEFF00'],
+			['InkZel',              'zel',              'Musician',                                                     'https://twitter.com/inkzel',           'EEFF00'],
+			['Monomi',              'monomi',           'Charter',                                                      'https://twitter.com/Monomi54',         'EEFF00'],
+			['Aster',               'aster',            'Voice Actor',                              'https://www.youtube.com/channel/UCx2wi1AYgDKw1JHszcwJJVw', 'EEFF00'],
+			['WinkWing',            'wink',             'Musician',                                                     'https://twitter.com/Winkwing__',       'EEFF00'],
+			[''],
+
+			// :33 < The rest is *not* us h33h33
+
 			['Psych Engine Team'],
 			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
 			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],

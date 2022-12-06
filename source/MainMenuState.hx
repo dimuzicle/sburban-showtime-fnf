@@ -31,6 +31,12 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
+
+	var cake:FlxSprite;
+	var abjureMenu:FlxSprite;
+	var paper:FlxSprite;
+	var square:FlxSprite;
+	var sburb:FlxSprite;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -71,13 +77,51 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		/*
+		
+		// :33 < h33h33 secret cake
+		
 		cake = new FlxSprite(0).loadGraphic(Paths.image('menu/cake', "sburb"));
 		cake.updateHitbox();
-		cake.screenCenter();
+		cake.x = 305;
+		cake.y = 145;
 		cake.antialiasing = ClientPrefs.globalAntialiasing;
 		add(cake);
-		*/
+
+		// :33 < This loads in the abjure!!! paper! :))
+
+		abjureMenu = new FlxSprite(0).loadGraphic(Paths.image('menu/abjureMenu', "sburb"));
+		abjureMenu.updateHitbox();
+		abjureMenu.x = 315;
+		abjureMenu.y = 125;
+		abjureMenu.scale.set(.7, .7);
+		abjureMenu.antialiasing = ClientPrefs.globalAntialiasing;
+		abjureMenu.alpha = 0;
+		add(abjureMenu);
+
+		paper = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		paper.scale.set(1, .5);
+		paper.updateHitbox();
+		paper.x = 415;
+		paper.y = 247;
+		paper.alpha = 0;
+		add(paper);
+
+		sburb = new FlxSprite().loadGraphic(Paths.image('menu/sburb', "sburb"));
+		sburb.updateHitbox();
+		sburb.screenCenter();
+		sburb.y -= 234;
+		sburb.x += 40;
+		sburb.alpha = 1;
+		add(sburb);
+
+		square = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
+		square.scale.set(.27, .27);
+		square.updateHitbox();
+		square.screenCenter();
+		square.y -= 234;
+		square.x += 40;
+		square.alpha = 0;
+		add(square);
 		
 		// magenta.scrollFactor.set();
 
@@ -160,9 +204,9 @@ class MainMenuState extends MusicBeatState
 				if(FlxG.mouse.overlaps(spr)){
 					if(FlxG.mouse.justPressed){
 						selectedSomethin = true;
-						FlxG.sound.play(Paths.sound("confirmMenu"), 0.7);
+						FlxG.sound.play(Paths.sound("confirmMenu"), 1.5);
 						//FlxG.camera.fade(FlxColor.WHITE,1);
-						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+						FlxFlicker.flicker(spr, .5, 0.06, false, false, function(flick:FlxFlicker)
 							{
 								var daChoice:String = optionShit[spr.ID];
 
@@ -181,6 +225,35 @@ class MainMenuState extends MusicBeatState
 					}
 				}
 			});
+
+			// :00 < ABJURE!!!!
+			
+			if(FlxG.mouse.overlaps(cake)){
+				if(FlxG.mouse.justPressed){
+					if(ClientPrefs.cakeSecret == false){
+						abjureMenu.alpha = 1;
+						FlxFlicker.flicker(abjureMenu, 1, 0.05, true, false);
+						ClientPrefs.cakeSecret = true;
+						selectedSomethin = true;
+						FlxG.sound.play(Paths.sound("cakeSplat"), 0.7);
+						FlxFlicker.flicker(cake, 1, 0.05, false, false, function(flick:FlxFlicker)
+						{
+							var poop:String = Highscore.formatSong('abjure', 1);
+							trace(poop);
+	
+							PlayState.SONG = Song.loadFromJson(poop, 'abjure');
+							PlayState.isStoryMode = false;
+							PlayState.storyDifficulty = 1;
+	
+							LoadingState.loadAndSwitchState(new PlayState());
+						});
+					}
+					else{
+						FlxG.sound.play(Paths.sound("cakeSplat"), 0.7);
+					}
+				}
+			}
+
 			/*
 			if (controls.ACCEPT)
 			{
@@ -236,6 +309,26 @@ class MainMenuState extends MusicBeatState
 			*/
 		}
 
+		if(FlxG.mouse.overlaps(paper)){
+			if(FlxG.mouse.justPressed){
+				if(ClientPrefs.secret1 && ClientPrefs.secret2 == true){
+					FlxG.sound.play(Paths.sound("horn"), 3.0);
+					ClientPrefs.secret3 = true;
+				}
+			}
+		}
+
+		if(FlxG.mouse.overlaps(square)){
+			if(FlxG.mouse.justPressed){
+				if(ClientPrefs.secret1 == true && ClientPrefs.secret2 == true && ClientPrefs.secret3 == true){
+					FlxG.sound.play(Paths.sound("confirmMenu2"), .7);
+					FlxFlicker.flicker(sburb, 1, 0.06, false, false, function(flick:FlxFlicker){
+						MusicBeatState.switchState(new FreeplayState());
+					});
+				}
+
+			}
+		}
 		super.update(elapsed);
 
 		/*
