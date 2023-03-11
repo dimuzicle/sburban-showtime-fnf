@@ -27,13 +27,8 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static var instance:GameOverSubstate;
 
-	//Un edited, this just sets the default death player. Using the if else's that I did,
-	//it makes sure that depending on the player character it chooses the right one
-	//I can do t his better but not right now <3
-	public static function resetVariables(deadPlayer:String) {
-		if(deadPlayer == 'gfSS'){characterName = 'gfSS-dead';}
-		else if(deadPlayer == 'johnHS'){characterName = 'johnHS-dead';}
-		else{characterName = 'bf-dead';}
+	public static function resetVariables() {
+		characterName = 'bf-dead';
 		deathSoundName = 'fnf_loss_sfx';
 		loopSoundName = 'gameOver';
 		endSoundName = 'gameOverEnd';
@@ -58,12 +53,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		boyfriend = new Boyfriend(x, y, characterName);
 		boyfriend.x += boyfriend.positionArray[0];
 		boyfriend.y += boyfriend.positionArray[1];
-		add(boyfriend);	
+		add(boyfriend);
 
-		camFollow = new FlxPoint();
-		if(characterName == 'gfSS-dead'){camFollow.x = boyfriend.getGraphicMidpoint().x - 25; camFollow.y = boyfriend.getGraphicMidpoint().y - 250;}
-		else{camFollow.x = boyfriend.getGraphicMidpoint().x - 25; camFollow.y = boyfriend.getGraphicMidpoint().y - 200;}
-		
+		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
+
 		FlxG.sound.play(Paths.sound(deathSoundName));
 		Conductor.changeBPM(100);
 		// FlxG.camera.followLerp = 1;

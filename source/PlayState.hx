@@ -266,10 +266,6 @@ class PlayState extends MusicBeatState
 	var tankmanRun:FlxTypedGroup<TankmenBG>;
 	var foregroundSprites:FlxTypedGroup<BGSprite>;
 
-	var nowPlayingTxtBase:FlxText;
-	var nowPlayingTxt:FlxText;
-	var songBox:FlxSprite;
-
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
@@ -436,7 +432,7 @@ class PlayState extends MusicBeatState
 		detailsPausedText = "Paused - " + detailsText;
 		#end
 
-		GameOverSubstate.resetVariables(SONG.player1);
+		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
 
 		curStage = SONG.stage;
@@ -654,7 +650,7 @@ class PlayState extends MusicBeatState
 		strumLine.scrollFactor.set();
 
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
-		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, (ClientPrefs.downScroll ? FlxG.height - 90 : 10), 400, "", 32);
+		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, (ClientPrefs.downScroll ? FlxG.height - 110 : 10), 400, "", 32);
 		timeTxt.setFormat(Paths.font("homestuck.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
@@ -785,34 +781,6 @@ class PlayState extends MusicBeatState
 		botplayTxt.borderSize = 1.25;
 		botplayTxt.visible = cpuControlled;
 		add(botplayTxt);
-		
-		//All of this adds in the now playing stuff :B
-		songBox = new FlxSprite().loadGraphic(Paths.image('menu/thing', "sburb"));
-		songBox.scale.set(10, 5);
-		songBox.screenCenter();
-		songBox.x -= 970;                         // x = -570; y = 500
-		songBox.y = 0; songBox.y += 500;
-		songBox.alpha = 0;
-		add(songBox);
-
-		nowPlayingTxtBase = new FlxText();
-		nowPlayingTxtBase.setFormat(Paths.font("homestuck.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		nowPlayingTxtBase.screenCenter();
-		nowPlayingTxtBase.x -= 970;
-		nowPlayingTxtBase.y = 0; nowPlayingTxtBase.y += 430;             // x = -570; y = 430
-		nowPlayingTxtBase.borderSize = 2;
-		nowPlayingTxtBase.alpha = 0;
-		add(nowPlayingTxtBase);
-
-		nowPlayingTxt = new FlxText();
-		nowPlayingTxt.setFormat(Paths.font("homestuck.ttf"), 25, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		nowPlayingTxt.screenCenter();
-		nowPlayingTxt.x -= 980;
-		nowPlayingTxt.y = 0; nowPlayingTxt.y += 450;           // x = -580; y = 450;
-		nowPlayingTxt.borderSize = 2;
-		nowPlayingTxt.alpha = 0;
-		add(nowPlayingTxt);
-
 		if(ClientPrefs.downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
 		}
@@ -830,9 +798,6 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-		nowPlayingTxtBase.cameras = [camHUD];
-		nowPlayingTxt.cameras = [camHUD];
-		songBox.cameras = [camHUD];
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1741,49 +1706,6 @@ class PlayState extends MusicBeatState
 		Paths.sound('introGo' + introSoundsSuffix);
 	}
 
-	//This function actually applies the text and box and such :B
-	//I should probably use a text file for this but blargh
-	function nowPlaying():Void
-	{
-		nowPlayingTxtBase.alpha = 1;
-		nowPlayingTxt.alpha = 1;
-		songBox.alpha = .5;
-
-		FlxTween.tween(nowPlayingTxtBase, {x: (nowPlayingTxtBase.x + 400)}, 1, {ease: FlxEase.quintOut, onComplete: function(twn:FlxTween){ 
-			FlxTween.tween(nowPlayingTxtBase, {x: (nowPlayingTxtBase.x - 400)}, 1, {ease: FlxEase.quintIn, startDelay: 2, onComplete: function(twn:FlxTween){ nowPlayingTxtBase.destroy(); }}); 
-		}});
-
-		FlxTween.tween(nowPlayingTxt, {x: (nowPlayingTxt.x + 400)}, 1, {ease: FlxEase.quintOut, onComplete: function(twn:FlxTween){ 
-			FlxTween.tween(nowPlayingTxt, {x: (nowPlayingTxt.x - 400)}, 1, {ease: FlxEase.quintIn, startDelay: 2, onComplete: function(twn:FlxTween){ nowPlayingTxt.destroy(); }}); 
-		}});
-
-		FlxTween.tween(songBox, {x: (songBox.x + 400)}, 1, {ease: FlxEase.quintOut, onComplete: function(twn:FlxTween){ 
-			FlxTween.tween(songBox, {x: (songBox.x - 400)}, 1, {ease: FlxEase.quintIn, startDelay: 2, onComplete: function(twn:FlxTween){ songBox.destroy(); }}); 
-		}});
-
-		nowPlayingTxtBase.text = 'Now Playing:';
-		switch(curSong){
-			case 'prankster':
-				nowPlayingTxt.text = '\n    Prankster \n    by Teles \n \n    Charted by: \n    Sprons';
-			case 'record scratch':
-				nowPlayingTxt.text = '\n  Record Scratch \n  by CrabbChips \n \n  Charted by: \n  purpurraCatnip';
-			case 'gin-and-needles':
-				nowPlayingTxt.text = '\n  Gin and Needles \n  by Zel \n \n  Charted by: \n  Sprons';
-			case 'sunshatter':
-				nowPlayingTxt.text = '\n   Sunshatter \n    by Zel \n \n    Charted by: \n    Poyo';
-			case 'abjure':
-				nowPlayingTxt.text = '\nAbjure! \nby Jospi \n \nChart and Art by: \nGreenie';
-			case 'showtime':
-				nowPlayingTxt.text = '\n  Showtime \n  by WinkWing \n \n  Charted by: \n  purpurraCatnip';
-			case 'carcinized':
-				nowPlayingTxt.text = '\n  Carcinized \n  by CrabbChips \n \n  Charted by: \n  purpurraCatnip';
-			case 'record-scratch2':
-				nowPlayingTxt.text = '\nPlaceholder \nby placeholder \n \nCharted by: \nplaceholder \n Art by: \nGreenie';
-			case 'pouncegreet':
-				nowPlayingTxt.text = '\nPouncegreet \nby JeeflyMania \n \nCharted by: \nSprons';
-		}
-	}
-
 	public function startCountdown():Void
 	{
 		if(startedCountdown) {
@@ -1927,10 +1849,6 @@ class PlayState extends MusicBeatState
 							{
 								remove(countdownGo);
 								countdownGo.destroy();
-								
-								//Adds the now playing box when the go leaves :B
-								nowPlaying();
-							
 							}
 						});
 						FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), 0.6);
@@ -3682,10 +3600,7 @@ class PlayState extends MusicBeatState
 					if(FlxTransitionableState.skipNextTransIn) {
 						CustomFadeTransition.nextCamera = null;
 					}
-					if(isStoryMode){
-						MusicBeatState.switchState(new SburbanStory());
-					}
-					else{MusicBeatState.switchState(new MainMenuState());}
+					MusicBeatState.switchState(new MainMenuState());
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {

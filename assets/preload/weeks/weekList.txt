@@ -1,3 +1,1 @@
-act1
-act2
-misc
+week1

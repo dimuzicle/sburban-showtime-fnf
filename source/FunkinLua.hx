@@ -1571,7 +1571,7 @@ class FunkinLua {
 			if(PlayState.isStoryMode)
 				MusicBeatState.switchState(new MainMenuState());
 			else
-				MusicBeatState.switchState(new FreeplaySelectorTheSecond());
+				MusicBeatState.switchState(new FreeplaySburb());
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.changedDifficulty = false;

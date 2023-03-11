@@ -206,7 +206,7 @@ class WeekData {
 		}
 	}
 
-	public static function getWeekFile(path:String):WeekFile {
+	private static function getWeekFile(path:String):WeekFile {
 		var rawJson:String = null;
 		#if MODS_ALLOWED
 		if(FileSystem.exists(path)) {

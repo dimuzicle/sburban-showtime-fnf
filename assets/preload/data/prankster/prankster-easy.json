@@ -4850,7 +4850,7 @@
 		"song": "prankster",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "johnRoom",
+		"stage": "balcony",
 		"speed": 2.8,
 		"bpm": 140
 	}

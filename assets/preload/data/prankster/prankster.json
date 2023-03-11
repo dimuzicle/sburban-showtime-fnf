@@ -3433,7 +3433,7 @@
 		"player2": "john",
 		"player3": null,
 		"song": "prankster",
-		"stage": "johnRoom",
+		"stage": "balcony",
 		"needsVoices": true,
 		"validScore": true,
 		"bpm": 140,

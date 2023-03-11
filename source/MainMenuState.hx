@@ -82,7 +82,7 @@ class MainMenuState extends MusicBeatState
 		
 		// :33 < h33h33 secret cake
 		
-		cake = new FlxSprite().loadGraphic(Paths.image('menu/cake', "sburb"));
+		cake = new FlxSprite(0).loadGraphic(Paths.image('menu/cake', "sburb"));
 		cake.updateHitbox();
 		cake.x = 305;
 		cake.y = 145;
@@ -125,7 +125,7 @@ class MainMenuState extends MusicBeatState
 		square.x += 40;
 		square.alpha = 0;
 		add(square);
-
+		
 		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
@@ -216,7 +216,14 @@ class MainMenuState extends MusicBeatState
 								switch (daChoice)
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new SburbanStory());
+										PlayState.storyPlaylist = ['Prankster','Gin-And-Needles','Record-Scratch','Sunshatter'];
+										PlayState.isStoryMode = true;
+
+										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase(), PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.campaignScore = 0;
+										PlayState.campaignMisses = 0;
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+										FreeplayState.destroyFreeplayVocals();
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplaySelectorTheSecond());
 									case 'credits':
@@ -336,9 +343,10 @@ class MainMenuState extends MusicBeatState
 		ClientPrefs.saveSettings();
 		
 		if (FlxG.keys.justPressed.SEVEN)
-		{
-			MusicBeatState.switchState(new editors.MasterEditorMenu());
-		}
+			{
+				MusicBeatState.switchState(new editors.MasterEditorMenu());
+			}
+
 		super.update(elapsed);
 
 		/*

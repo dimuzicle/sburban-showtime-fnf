@@ -1,5 +1,5 @@
 {
-	"storyName": "Sgruban Showdown",
+	"storyName": "Your New Week",
 	"difficulties": "Normal",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
@@ -13,8 +13,8 @@
 	"hideStoryMode": false,
 	"songs": [
 		[
-			"carcinized",
-			"karkat",
+			"abjure",
+			"dad",
 			[
 				146,
 				113,
@@ -22,8 +22,8 @@
 			]
 		],
 		[
-			"pouncegreet",
-			"nepeta",
+			"showtime",
+			"john",
 			[
 				146,
 				113,
