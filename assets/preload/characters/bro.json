@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-6,
+				-199
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "bro down instance "
+		},
+		{
+			"offsets": [
+				-75,
+				600
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "bro up instance"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "bro danceleft instance ",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-25
+			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "bro danceright instance ",
+			"indices": []
+		},
+		{
+			"offsets": [
+				241,
+				48
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "bro right instance "
+		},
+		{
+			"offsets": [
+				27,
+				-196
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "bro left instance"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/bro",
+	"position": [
+		-300,
+		20
+	],
+	"healthicon": "bro",
+	"flip_x": true,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		170,
+		-110
+	],
+	"sing_duration": 6.1,
+	"scale": 1.8
+}

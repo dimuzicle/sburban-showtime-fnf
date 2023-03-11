@@ -111,6 +111,9 @@ class CreditsState extends MusicBeatState
 			['Monomi',              'monomi',           'Charter',                                                      'https://twitter.com/Monomi54',         'EEFF00'],
 			['Aster',               'aster',            'Voice Actor',                              'https://www.youtube.com/channel/UCx2wi1AYgDKw1JHszcwJJVw', 'EEFF00'],
 			['WinkWing',            'wink',             'Musician',                                                     'https://twitter.com/Winkwing__',       'EEFF00'],
+			['Poyo',                'poyo',             'Charter',                                                      'https://twitter.com/_Poyo_09',         'EEFF00'],
+			['JeeflyMania',         'jeefly',           'Composer',                                                     'https://twitter.com/jeeflymania',      'EEFF00'],
+			['Rejin',               'rejin',            'Voice Actor',                              'https://www.youtube.com/channel/UCTSrcr3A4TyChbGh05cuhpw', 'EEFF00'],
 			[''],
 
 			// :33 < The rest is *not* us h33h33

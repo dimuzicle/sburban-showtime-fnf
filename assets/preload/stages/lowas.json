@@ -1,0 +1,10 @@
+{
+	"directory": "sburb",
+	"defaultZoom": 0.7,
+	"isPixelStage": false,
+	"hide_girlfriend": true,
+
+	"boyfriend": [650, 275],
+	"girlfriend": [400, 130],
+	"opponent": [-50, 250]
+}

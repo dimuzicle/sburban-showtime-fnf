@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dave.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="dave down instance 10000" x="0" y="0" width="462" height="251" frameX="-5" frameY="0" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10001" x="0" y="0" width="462" height="251" frameX="-5" frameY="0" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10002" x="462" y="0" width="454" height="239" frameX="-3" frameY="-1" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10003" x="462" y="0" width="454" height="239" frameX="-3" frameY="-1" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10004" x="916" y="0" width="450" height="231" frameX="0" frameY="-1" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10005" x="916" y="0" width="450" height="231" frameX="0" frameY="-1" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10006" x="1366" y="0" width="447" height="229" frameX="0" frameY="-1" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10007" x="1366" y="0" width="447" height="229" frameX="0" frameY="-1" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10008" x="0" y="251" width="444" height="227" frameX="0" frameY="-3" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10009" x="0" y="251" width="444" height="227" frameX="0" frameY="-3" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10010" x="0" y="251" width="444" height="227" frameX="0" frameY="-3" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10011" x="0" y="251" width="444" height="227" frameX="0" frameY="-3" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10012" x="0" y="251" width="444" height="227" frameX="0" frameY="-3" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave down instance 10013" x="0" y="251" width="444" height="227" frameX="0" frameY="-3" frameWidth="467" frameHeight="251"/>
+	<SubTexture name="dave idle instance 10000" x="444" y="251" width="431" height="230" frameX="0" frameY="-8" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10001" x="444" y="251" width="431" height="230" frameX="0" frameY="-8" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10002" x="875" y="251" width="435" height="237" frameX="0" frameY="-1" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10003" x="875" y="251" width="435" height="237" frameX="0" frameY="-1" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10004" x="1310" y="251" width="432" height="237" frameX="0" frameY="-1" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10005" x="1310" y="251" width="432" height="237" frameX="0" frameY="-1" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10006" x="0" y="488" width="430" height="237" frameX="0" frameY="-1" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10007" x="0" y="488" width="430" height="237" frameX="0" frameY="-1" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10008" x="430" y="488" width="430" height="238" frameX="0" frameY="0" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10009" x="430" y="488" width="430" height="238" frameX="0" frameY="0" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10010" x="430" y="488" width="430" height="238" frameX="0" frameY="0" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10011" x="430" y="488" width="430" height="238" frameX="0" frameY="0" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10012" x="430" y="488" width="430" height="238" frameX="0" frameY="0" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave idle instance 10013" x="430" y="488" width="430" height="238" frameX="0" frameY="0" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave left instance 10000" x="860" y="488" width="470" height="292"/>
+	<SubTexture name="dave left instance 10001" x="860" y="488" width="470" height="292"/>
+	<SubTexture name="dave left instance 10002" x="1330" y="488" width="463" height="287" frameX="-3" frameY="-5" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10003" x="1330" y="488" width="463" height="287" frameX="-3" frameY="-5" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10004" x="0" y="780" width="457" height="281" frameX="-8" frameY="-11" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10005" x="0" y="780" width="457" height="281" frameX="-8" frameY="-11" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10006" x="457" y="780" width="453" height="277" frameX="-9" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10007" x="457" y="780" width="453" height="277" frameX="-9" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10008" x="910" y="780" width="452" height="277" frameX="-10" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10009" x="910" y="780" width="452" height="277" frameX="-10" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10010" x="910" y="780" width="452" height="277" frameX="-10" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10011" x="910" y="780" width="452" height="277" frameX="-10" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10012" x="910" y="780" width="452" height="277" frameX="-10" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave left instance 10013" x="910" y="780" width="452" height="277" frameX="-10" frameY="-15" frameWidth="470" frameHeight="292"/>
+	<SubTexture name="dave right instance 10000" x="1362" y="780" width="383" height="319" frameX="-17" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10001" x="1362" y="780" width="383" height="319" frameX="-17" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10002" x="0" y="1099" width="384" height="319" frameX="-8" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10003" x="0" y="1099" width="384" height="319" frameX="-8" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10004" x="384" y="1099" width="384" height="319" frameX="-3" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10005" x="384" y="1099" width="384" height="319" frameX="-3" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10006" x="768" y="1099" width="383" height="319" frameX="-1" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10007" x="768" y="1099" width="383" height="319" frameX="-1" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10008" x="1151" y="1099" width="384" height="319" frameX="0" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10009" x="1151" y="1099" width="384" height="319" frameX="0" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10010" x="1151" y="1099" width="384" height="319" frameX="0" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10011" x="1151" y="1099" width="384" height="319" frameX="0" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10012" x="1151" y="1099" width="384" height="319" frameX="0" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave right instance 10013" x="1151" y="1099" width="384" height="319" frameX="0" frameY="0" frameWidth="400" frameHeight="319"/>
+	<SubTexture name="dave up instance 10000" x="1535" y="1099" width="383" height="328" frameX="-86" frameY="-10" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10001" x="1535" y="1099" width="383" height="328" frameX="-86" frameY="-10" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10002" x="0" y="1427" width="383" height="323" frameX="-86" frameY="-4" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10003" x="0" y="1427" width="383" height="323" frameX="-86" frameY="-4" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10004" x="383" y="1427" width="383" height="323" frameX="-86" frameY="-2" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10005" x="383" y="1427" width="383" height="323" frameX="-86" frameY="-2" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10006" x="766" y="1427" width="383" height="323" frameX="-86" frameY="-1" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10007" x="766" y="1427" width="383" height="323" frameX="-86" frameY="-1" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10008" x="1149" y="1427" width="383" height="323" frameX="-86" frameY="0" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10009" x="1149" y="1427" width="383" height="323" frameX="-86" frameY="0" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10010" x="1532" y="1427" width="383" height="323" frameX="-86" frameY="-10" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10011" x="1532" y="1427" width="383" height="323" frameX="-86" frameY="-10" frameWidth="469" frameHeight="368"/>
+	<SubTexture name="dave up instance 10012" x="430" y="488" width="430" height="238" frameX="0" frameY="-131" frameWidth="435" frameHeight="238"/>
+	<SubTexture name="dave up instance 10013" x="430" y="488" width="430" height="238" frameX="0" frameY="-131" frameWidth="435" frameHeight="238"/>
+</TextureAtlas>
